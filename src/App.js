@@ -7,12 +7,12 @@ function App() {
   const fetchData = async () => {
     try {
       const res = await fetch(
-        "https://xcountries-backend.azurewebsites.net/all"
+        "https://xcountries-backend.azurewebsites.net/al"
       );
       const result = await res.json();
       setData(result);
     } catch (error) {
-      console.error(error.message);
+      console.error("Error fetching data:", error);
     }
   };
 
