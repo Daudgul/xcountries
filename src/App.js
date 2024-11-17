@@ -7,7 +7,7 @@ function App() {
   const fetchData = async () => {
     try {
       const res = await fetch(
-        "https://xcountries-backend.azurewebsites.net/al"
+        "https://xcountries-backend.azurewebsites.net/all"
       );
       const result = await res.json();
       setData(result);
