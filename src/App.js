@@ -15,7 +15,7 @@ function App() {
       const result = await res.json();
       setData(result);
     } catch (error) {
-      alert(error.message);
+      console.error(error.message);
     }
   };
 
