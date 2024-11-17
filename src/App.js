@@ -9,9 +9,6 @@ function App() {
       const res = await fetch(
         "https://xcountries-backend.azurewebsites.net/all"
       );
-      if (!res.ok) {
-        alert("there is some issue in the json");
-      }
       const result = await res.json();
       setData(result);
     } catch (error) {
@@ -22,7 +19,6 @@ function App() {
   useEffect(() => {
     fetchData();
   }, []);
-  console.log(data, "newDAta");
 
   return (
     <div className="App">
