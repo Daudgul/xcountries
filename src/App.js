@@ -16,7 +16,7 @@ function App() {
   };
 
   useEffect(() => {
-    fetchData();
+    // fetchData();
   }, []);
 
   const filterData = data.filter((item) =>
