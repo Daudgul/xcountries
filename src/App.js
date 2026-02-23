@@ -25,15 +25,16 @@ function App() {
 
   return (
     <div className="App">
-      <input
-        type="text"
-        value={inputVal}
-        onChange={(e) => setInputVal(e.target.value)}
-      />
-      {data &&
-        filterData?.map((item, index) => (
-          <Card key={index} name={item.name.common} url={item.flags.svg} />
-        ))}
+    Hello this is app
+      // <input
+      //   type="text"
+      //   value={inputVal}
+      //   onChange={(e) => setInputVal(e.target.value)}
+      // />
+      // {data &&
+      //   filterData?.map((item, index) => (
+      //     <Card key={index} name={item.name.common} url={item.flags.svg} />
+      //   ))}
     </div>
   );
 }
