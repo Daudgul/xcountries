@@ -1,51 +1,34 @@
-import "./App.css";
-import { useEffect, useState } from "react";
+import { BrowserRouter, Routes, Route, Link } from "react-router-dom";
+import Html from "./pages/Html";
+import Css from "./pages/Css";
+import Js from "./pages/Js";
+import ReactPage from "./pages/ReactPage";
+import Node from "./pages/Node";
+import Navbar from "./components/Navbar";
 
-function App() {
-  const [data, setData] = useState([]);
-  const [inputVal, setInputVal] = useState("");
-
-  const fetchData = async () => {
-    try {
-      const res = await fetch("https://restcountries.com/v3.1/all");
-      const result = await res.json();
-      setData(result);
-    } catch (error) {
-      console.error("Error fetching data:", error);
-    }
-  };
-
-  useEffect(() => {
-    // fetchData();
-  }, []);
-
-  const filterData = data.filter((item) =>
-    item.name?.common?.toLowerCase().includes(inputVal?.toLowerCase())
-  );
-
+export default function App() {
   return (
-    <div className="App">
-    Hello this is app
-      // <input
-      //   type="text"
-      //   value={inputVal}
-      //   onChange={(e) => setInputVal(e.target.value)}
-      // />
-      // {data &&
-      //   filterData?.map((item, index) => (
-      //     <Card key={index} name={item.name.common} url={item.flags.svg} />
-      //   ))}
-    </div>
-  );
-}
+    <BrowserRouter>
+      
+      {/* Navbar */}
+      {/* <nav className="bg-black text-white p-4 flex flex-wrap gap-4 justify-center text-sm md:text-lg">
+        <Link to="/">HTML</Link>
+        <Link to="/css">CSS</Link>
+        <Link to="/js">JS</Link>
+        <Link to="/react">React</Link>
+        <Link to="/node">Node</Link>
+      </nav> */}
+      <Navbar/>
 
-export default App;
+      {/* Pages */}
+      <Routes>
+        <Route path="/" element={<Html />} />
+        <Route path="/css" element={<Css />} />
+        <Route path="/js" element={<Js />} />
+        <Route path="/react" element={<ReactPage />} />
+        <Route path="/node" element={<Node />} />
+      </Routes>
 
-function Card({ name, url }) {
-  return (
-    <div className="countryCard">
-      <img src={url} alt={name} />
-      <h2>{name}</h2>
-    </div>
+    </BrowserRouter>
   );
 }
